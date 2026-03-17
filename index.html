@@ -3,60 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sacred Flowers</title>
+    <title>Sacred Flowers - Flowers for Every Faith, Every Prayer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Sacred Flowers</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#faith">Select Faith</a></li>
-                <li><a href="#config">Flower Configuration</a></li>
-                <li><a href="#order">Order</a></li>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-flower"></i>
+                <span>Sacred Flowers</span>
+            </div>
+            <ul class="nav-tabs">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#faith" class="nav-link">Select Faith</a></li>
+                <li><a href="#config" class="nav-link">Configuration</a></li>
+                <li><a href="#order" class="nav-link">Order</a></li>
+                <li><a href="#delivery" class="nav-link">Delivery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <section id="home">
-            <h2>Welcome to Sacred Flowers</h2>
-            <p>Your one-stop shop for enchanting floral arrangements.</p>
-        </section>
-        <section id="faith">
-            <h2>Select Faith</h2>
-            <form>
-                <label for="faith-selection">Choose your faith:</label>
-                <select id="faith-selection" name="faith">
-                    <option value="hinduism">Hinduism</option>
-                    <option value="buddhism">Buddhism</option>
-                    <option value="christianity">Christianity</option>
-                </select>
-            </form>
-        </section>
-        <section id="config">
-            <h2>Flower Configuration</h2>
-            <form>
-                <label for="flower-type">Choose flower:</label>
-                <select id="flower-type" name="flower">
-                    <option value="lotus">Lotus</option>
-                    <option value="rose">Rose</option>
-                    <option value="jasmine">Jasmine</option>
-                </select>
-                <label for="size">Size (in inches):</label>
-                <input type="number" id="size" name="size" min="1" max="12">
-            </form>
-        </section>
-        <section id="order">
-            <h2>Order Your Flowers</h2>
-            <p>Reach us on WhatsApp to place your order!</p>
-            <a href="https://wa.me/1234567890" target="_blank">Order on WhatsApp</a>
-        </section>
-    </main>
+    <!-- SECTION 1: HERO (HOME) -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Sacred Flowers</h1>
+            <p class="hero-tagline">"Flowers for Every Faith, Every Prayer"</p>
+            <button class="cta-button whatsapp-btn" onclick="openWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </button>
+        </div>
+    </section>
 
-    <footer>
+    <!-- SECTION 2: SELECT YOUR FAITH -->
+    <section id="faith" class="faith-section">
+        <div class="container">
+            <h2 class="section-title">Select Your Faith</h2>
+            <div class="faith-cards-grid">
+                <div class="faith-card" data-faith="hindu">
+                    <i class="fas fa-om"></i>
+                    <h3>Hindu</h3>
+                    <p>Marigolds, lotus, and vibrant blooms for prayers and rituals</p>
+                </div>
+                <div class="faith-card" data-faith="muslim">
+                    <i class="fas fa-mosque"></i>
+                    <h3>Muslim</h3>
+                    <p>Rose and fragrant flowers for spiritual devotion</p>
+                </div>
+                <div class="faith-card" data-faith="sikh">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sikh</h3>
+                    <p>Yellow and white flowers for community gatherings</p>
+                </div>
+                <div class="faith-card" data-faith="christian">
+                    <i class="fas fa-cross"></i>
+                    <h3>Christian</h3>
+                    <p>White lilies, roses, and elegant arrangements for celebrations</p>
+                </div>
+                <div class="faith-card" data-faith="other">
+                    <i class="fas fa-hands-praying"></i>
+                    <h3>All Faiths</h3>
+                    <p>Seasonal flowers for any spiritual purpose</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECTION 3: CONFIGURATION -->
+    <section id="config" class="config-section">
+        <div class="container">
+            <h2 class="section-title">Flower Configuration</h2>
+            <form id="configForm" class="config-form">
+                
+                <!-- Step 1: Purpose -->
+                <div class="form-step">
+                    <h3>Step 1: Select Purpose</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="purpose" value="daily-prayer" checked>
+                            <span class="radio-label">
+                                <i class="fas fa-sunrise"></i>
+                                Daily Prayer
+                            </span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="purpose" value="festival">
+                            <span class="radio-label">
+                                <i class="fas fa-star"></i>
+                                Festival / Event
+                            </span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="purpose" value="bulk">
+                            <span class="radio-label">
+                                <i class="fas fa-cube"></i>
+                                Temple / Bulk
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: Size -->
+                <div class="form-step">
+                    <h3>Step 2: Select Size (in inches)</h3>
+                    <div class="size-input-group">
+                        <select id="sizeSelect" name="size" class="size-dropdown">
+                            <option value="">Choose a size...</option>
+                            <option value="6">6 inches</option>
+                            <option value="9">9 inches</option>
+                            <option value="12">12 inches</option>
+                            <option value="15">15 inches</option>
+                            <option value="18">18 inches</option>
+                            <option value="24">24 inches</option>
+                            <option value="custom">Custom Size</option>
+                        </select>
+                        <input type="number" id="customSize" name="customSize" placeholder="Enter custom size (inches)" style="display:none;" min="1" max="48">
+                    </div>
+                </div>
+
+                <!-- Step 3: Flower Preference -->
+                <div class="form-step">
+                    <h3>Step 3: Flower Preference</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="radio" name="flowerType" value="seasonal" checked>
+                            <span class="checkbox-label">
+                                <i class="fas fa-leaf"></i>
+                                Seasonal Flowers (Recommended)
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="radio" name="flowerType" value="specific">
+                            <span class="checkbox-label">
+                                <i class="fas fa-rose"></i>
+                                Specific Flowers
+                            </span>
+                        </label>
+                    </div>
+                    <div id="specificFlowers" style="display:none;">
+                        <select id="flowerSelect" name="flowers" class="flower-dropdown">
+                            <option value="">Choose flowers...</option>
+                            <option value="rose">Rose</option>
+                            <option value="marigold">Marigold</option>
+                            <option value="lotus">Lotus</option>
+                            <option value="jasmine">Jasmine</option>
+                            <option value="sunflower">Sunflower</option>
+                            <option value="lily">Lily</option>
+                            <option value="tulip">Tulip</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 4: Frequency -->
+                <div class="form-step">
+                    <h3>Step 4: Select Frequency</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="frequency" value="onetime" checked>
+                            <span class="radio-label">
+                                <i class="fas fa-box"></i>
+                                One-time Order
+                            </span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="frequency" value="daily">
+                            <span class="radio-label">
+                                <i class="fas fa-repeat"></i>
+                                Daily Delivery
+                            </span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="frequency" value="weekly">
+                            <span class="radio-label">
+                                <i class="fas fa-calendar"></i>
+                                Weekly Subscription
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-button primary-btn">Proceed to Order</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SECTION 4: DIRECT ORDERING -->
+    <section id="order" class="order-section">
+        <div class="container">
+            <h2 class="section-title">Direct Ordering</h2>
+            <p class="order-subtitle">Quick and Easy - Order via WhatsApp</p>
+            
+            <button class="cta-button whatsapp-btn large-btn" onclick="orderNowWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </button>
+
+            <div class="quick-orders">
+                <h3>Quick Order Packs</h3>
+                <div class="order-packs">
+                    <button class="pack-card" onclick="quickOrder('daily')">
+                        <i class="fas fa-sun"></i>
+                        <h4>Daily Pack</h4>
+                        <p>6" - Daily Prayer</p>
+                    </button>
+                    <button class="pack-card" onclick="quickOrder('festival')">
+                        <i class="fas fa-star"></i>
+                        <h4>Festival Pack</h4>
+                        <p>12" - Celebration Ready</p>
+                    </button>
+                    <button class="pack-card" onclick="quickOrder('custom')">
+                        <i class="fas fa-palette"></i>
+                        <h4>Custom Pack</h4>
+                        <p>Your Specifications</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: BLESSED DELIVERY -->
+    <section id="delivery" class="delivery-section">
+        <div class="container">
+            <h2 class="section-title">Blessed Delivery</h2>
+            <div class="delivery-features">
+                <div class="delivery-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Fresh Flowers Guarantee</h3>
+                    <p>Handpicked fresh blooms delivered to your doorstep</p>
+                </div>
+                <div class="delivery-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Same-Day & Next-Day Delivery</h3>
+                    <p>Fast delivery options available for urgent orders</p>
+                </div>
+                <div class="delivery-card">
+                    <i class="fas fa-hands-praying"></i>
+                    <h3>Respectful Handling</h3>
+                    <p>Prepared and delivered with devotion and care</p>
+                </div>
+            </div>
+            <p class="delivery-tagline">"Measured, prepared, and delivered with devotion"</p>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>Chat with us for quick orders</p>
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">Message on WhatsApp</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>Send us your inquiries</p>
+                    <a href="mailto:info@sacredflowers.com" class="contact-link">info@sacredflowers.com</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Prayagraj & Nearby Areas</p>
+                    <p>Available for local delivery</p>
+                </div>
+            </div>
+
+            <form id="contactForm" class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button primary-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
         <p>&copy; 2026 Sacred Flowers. All rights reserved.</p>
+        <p>Flowers for Every Faith, Every Prayer</p>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
