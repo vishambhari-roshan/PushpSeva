@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sacred Flowers</title>
+<style>
+body {font-family: Arial; margin:0; background:#fff8e1;}
+header {background:#ffcc80; padding:20px; text-align:center;}
+section {padding:20px;}
+button {background:green; color:white; padding:10px; border:none;}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Sacred Flowers</h1>
+<p>Flowers for Every Faith, Every Prayer</p>
+<a href="https://wa.me/91XXXXXXXXXX">
+<button>Order on WhatsApp</button>
+</a>
+</header>
+
+<section>
+<h2>🌼 What We Offer</h2>
+<ul>
+<li>Daily Pooja Flower Packs</li>
+<li>Customized Garland (Mala)</li>
+<li>Festival Special Flowers</li>
+<li>Bulk Supply</li>
+</ul>
+</section>
+
+<section>
+<h2>🌿 Customization</h2>
+<ul>
+<li>Based on Faith</li>
+<li>Size in inches</li>
+<li>Seasonal flowers</li>
+</ul>
+</section>
+
+</body>
+</html>
